@@ -1,47 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-
-const container = {
-  hidden: {},
-  show: (baseDelay: number) => ({
-    transition: { staggerChildren: 0.09, delayChildren: baseDelay },
-  }),
-};
-
-const word = {
-  hidden: { y: "115%", rotate: 3 },
-  show: {
-    y: "0%",
-    rotate: 0,
-    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const },
-  },
-};
-
-function MaskedWords({
-  text,
-  className = "",
-  wordClassName = () => "",
-}: {
-  text: string;
-  className?: string;
-  wordClassName?: (w: string, i: number) => string;
-}) {
-  const words = text.split(" ");
-  return (
-    <>
-      {words.map((w, i) => (
-        <span key={i} className="inline">
-          <span className={`inline-block overflow-hidden pb-[0.08em] -mb-[0.08em] align-bottom ${className}`}>
-            <motion.span className={`inline-block ${wordClassName(w, i)}`} variants={word}>
-              {w}
-            </motion.span>
-          </span>
-          {i < words.length - 1 ? " " : ""}
-        </span>
-      ))}
-    </>
-  );
-}
+import { MaskedWords, wordsContainer } from "./MaskedWords";
 
 export function Process() {
   const ref = useRef<HTMLDivElement>(null);
@@ -63,8 +22,7 @@ export function Process() {
       <div ref={ref} className="relative max-w-6xl">
         <motion.h2
           className="font-serif text-[#F3ECDD] text-[11vw] sm:text-6xl lg:text-8xl leading-[1.04] tracking-tight"
-          variants={container}
-          custom={0}
+          variants={wordsContainer(0)}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
@@ -72,8 +30,7 @@ export function Process() {
         </motion.h2>
         <motion.h2
           className="mt-2 font-serif italic text-[#E6C073] text-[11vw] sm:text-6xl lg:text-8xl leading-[1.04] tracking-tight"
-          variants={container}
-          custom={0.5}
+          variants={wordsContainer(0.5)}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >

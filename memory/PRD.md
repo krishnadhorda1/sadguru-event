@@ -52,6 +52,8 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 - "WHAT WE DO" section REMOVED entirely per owner (section, nav link, footer link, services data, Services.tsx deleted).
 - Story sequence trimmed per owner: removed "Different events / people / emotions" and "One responsibility — To manage every heartbeat" blocks; sequence now ends at "Moments people remember."
 - "HOW WE WORK" section REMOVED per owner (5 steps, nav + footer links gone). Kept only the closing line "You live the moment. / We handle everything behind it." as a standalone cinematic band (Process.tsx) with word-by-word masked reveal, gold shimmer on "everything", self-drawing gold rules, maroon glow.
+- "OUR VALUES" section REMOVED per owner (Values.tsx deleted).
+- Closing sequence redesigned: three beats ("Your event is more than a date on a calendar." / "It's a memory someone will carry for the rest of their life." / "Let's make it worth remembering.") now animate word-by-word from behind masks with blur-fade + slight rotation, gold shimmer on "memory" and "worth remembering.", self-drawing gold hairlines between beats, maroon/gold radial glows; CTA fades up last. Shared MaskedWords component (`components/MaskedWords.tsx`) also powers the "You live the moment" band so both move identically.
 - Every major visual on the site is now REAL owner media.
 
 ## Backlog / next

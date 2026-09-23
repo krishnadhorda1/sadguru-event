@@ -8,7 +8,6 @@ import { Portfolio } from "@/components/Portfolio";
 import { Process } from "@/components/Process";
 import { Founder } from "@/components/Founder";
 import { Philosophy } from "@/components/Philosophy";
-import { Values } from "@/components/Values";
 import { Audience } from "@/components/Audience";
 import { Closing } from "@/components/Closing";
 import { Contact } from "@/components/Contact";
@@ -29,7 +28,6 @@ export default function Home() {
       <Process />
       <Founder />
       <Philosophy />
-      <Values />
       <Audience />
       <Closing />
       <Contact />
