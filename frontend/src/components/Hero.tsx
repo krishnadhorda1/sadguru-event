@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { scrollToId } from "@/lib/lenis";
@@ -7,6 +7,16 @@ import { MaskLines } from "./Reveal";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const tryPlay = () => v.play().catch(() => {});
+    tryPlay();
+    v.addEventListener("canplay", tryPlay);
+    return () => v.removeEventListener("canplay", tryPlay);
+  }, []);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "24%"]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.22]);
@@ -16,12 +26,20 @@ export function Hero() {
   return (
     <section ref={ref} id="home" className="relative h-[100svh] overflow-hidden" data-testid="hero-section">
       <motion.div className="absolute inset-0" style={{ y: bgY, scale: bgScale }}>
-        <img
-          src={heroImage}
-          alt="A couple on a concert stage amid CO2 jets and teal light at a Sadguru Event Planner celebration"
+        <video
+          ref={videoRef}
           className="h-full w-full object-cover"
-          fetchPriority="high"
-        />
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={heroImage}
+          aria-label="A couple on a concert stage amid CO2 jets and teal light at a Sadguru Event Planner celebration"
+        >
+          <source src="/media/hero-loop.mp4" type="video/mp4" />
+          <source src="/media/hero-loop.webm" type="video/webm" />
+        </video>
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0806]/70 via-[#0A0806]/55 to-[#0A0806]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,162,77,0.14)_0%,rgba(10,8,6,0)_65%)]" />

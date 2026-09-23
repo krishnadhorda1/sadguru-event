@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { StorySequence } from "@/components/StorySequence";
-import { Services } from "@/components/Services";
 import { Portfolio } from "@/components/Portfolio";
 import { Process } from "@/components/Process";
 import { Founder } from "@/components/Founder";
@@ -26,7 +25,6 @@ export default function Home() {
       <Hero />
       <Marquee />
       <StorySequence />
-      <Services />
       <Portfolio />
       <Process />
       <Founder />

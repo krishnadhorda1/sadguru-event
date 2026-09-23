@@ -48,7 +48,9 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 - Hero: real stage photograph (CO2 jets, couple, teal concert light — `/media/hero.jpg`) is the opening frame; OG image updated to match.
 - Gujrock: showreel WATCH REEL box added (reel DaSvQW6MN8r), sits beside the highlighted audience-feedback panel.
 - Philosophy strip: 4 real emotional photos (tk-7, gujrock-dsc, khelaiya-7, gujrock-7 — all files previously shared).
-- Every major visual on the site is now REAL owner media. Remaining placeholders: only the 8 small services-row hover images (cosmetic).
+- Hero: now a real VIDEO loop (`/media/hero-loop.mp4` H.264 for Chrome/Safari + `/media/hero-loop.webm` VP9 fallback for Chromium/Firefox — original Drive file was HEVC, transcoded) with hero.jpg poster and programmatic play() fallback.
+- "WHAT WE DO" section REMOVED entirely per owner (section, nav link, footer link, services data, Services.tsx deleted).
+- Every major visual on the site is now REAL owner media.
 
 ## Backlog / next
 - P0: Swap placeholder contact details (WhatsApp number, email, Instagram) and remaining placeholder media (Gujrock, Rang Kasumbal, Pre-Navratri, hero, story images) in `src/data/site.ts`.

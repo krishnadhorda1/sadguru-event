@@ -185,57 +185,6 @@ export const premiumWork: Project[] = [
   },
 ];
 
-export const services = [
-  {
-    num: "01",
-    title: "WEDDINGS",
-    desc: "Complete wedding planning, celebration management, guest coordination, entertainment and hospitality.",
-    image: u("https://images.unsplash.com/photo-1727430256509-0f897d6f4765?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB3ZWRkaW5nJTIwYnJpZGUlMjBncm9vbSUyMGNlcmVtb255JTIwY2luZW1hdGljfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
-  },
-  {
-    num: "02",
-    title: "EVENT MANAGEMENT",
-    desc: "Concept development, planning, coordination, vendors, timelines and complete execution.",
-    image: u("https://images.unsplash.com/photo-1772127822562-a898d9f5733c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBtYW5kYXAlMjBmbG93ZXJzJTIwZXZlbmluZ3xlbnwwfHx8fDE3OTAxOTM1MDF8MA&ixlib=rb-4.1.0", 900),
-  },
-  {
-    num: "03",
-    title: "RSVP & GUEST MANAGEMENT",
-    desc: "Guest communication, confirmations, document collection, tracking and live updates.",
-    image: u("https://images.pexels.com/photos/39341211/pexels-photo-39341211.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", 900),
-  },
-  {
-    num: "04",
-    title: "TRAVEL & HOSPITALITY",
-    desc: "Ticket booking, hotels, airport pickup and drop, transportation and guest assistance.",
-    image: u("https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjB3ZWRkaW5nJTIwYnJpZGUlMjBncm9vbSUyMGNlcmVtb255JTIwY2luZW1hdGljfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
-  },
-  {
-    num: "05",
-    title: "ARTIST & ENTERTAINMENT MANAGEMENT",
-    desc: "Artist coordination, scheduling, hospitality, performance management and event-day coordination.",
-    image: u("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwyfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
-  },
-  {
-    num: "06",
-    title: "EVENT PRODUCTION",
-    desc: "Stage, sound, lighting, LED, technical production and production coordination.",
-    image: u("https://images.unsplash.com/photo-1459749411175-04bf5292ceea?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
-  },
-  {
-    num: "07",
-    title: "CULTURAL EXPERIENCES",
-    desc: "Gujarati cultural programmes, folk music, storytelling and contemporary cultural formats.",
-    image: u("https://images.unsplash.com/photo-1764014792668-bc484714744f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
-  },
-  {
-    num: "08",
-    title: "LIVE CONCERTS",
-    desc: "Large-scale musical and entertainment experiences.",
-    image: u("https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
-  },
-];
-
 export const eventTypes = [
   "Wedding",
   "Destination Wedding",

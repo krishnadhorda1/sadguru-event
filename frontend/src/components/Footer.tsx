@@ -4,7 +4,6 @@ import { Logo } from "./Logo";
 
 const links = [
   { label: "HOME", id: "#home", testid: "footer-home-link" },
-  { label: "WHAT WE DO", id: "#what-we-do", testid: "footer-what-we-do-link" },
   { label: "OUR PREMIUM WORK", id: "#premium-work", testid: "footer-premium-work-link" },
   { label: "HOW WE WORK", id: "#how-we-work", testid: "footer-how-we-work-link" },
   { label: "ABOUT US", id: "#about", testid: "footer-about-link" },
