@@ -18,7 +18,7 @@ export function Hero() {
       <motion.div className="absolute inset-0" style={{ y: bgY, scale: bgScale }}>
         <img
           src={heroImage}
-          alt="A grand celebration stage designed by Sadguru Event Planner, glowing in warm gold light"
+          alt="A couple on a concert stage amid CO2 jets and teal light at a Sadguru Event Planner celebration"
           className="h-full w-full object-cover"
           fetchPriority="high"
         />

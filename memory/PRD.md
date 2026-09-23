@@ -45,7 +45,10 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 - Khelaiya Kulture case study (renamed from Pre-Navratri Celebrations): "KHELAIYA KULTURE — A Pre Navaratri Celebration" with 9 real photos (khelaiya-main, khelaiya-1..8) + showreel WATCH REEL box (instagram reel DO3MmilDKFw).
 - Rang Kasumbal Gujarat section REMOVED entirely per owner request.
 - Project model extended: `reels?: {label, link}[]` (link-out boxes) and `reviews?: string[]`.
-- Remaining placeholders: hero image, philosophy strip, services hover images — owner shares later.
+- Hero: real stage photograph (CO2 jets, couple, teal concert light — `/media/hero.jpg`) is the opening frame; OG image updated to match.
+- Gujrock: showreel WATCH REEL box added (reel DaSvQW6MN8r), sits beside the highlighted audience-feedback panel.
+- Philosophy strip: 4 real emotional photos (tk-7, gujrock-dsc, khelaiya-7, gujrock-7 — all files previously shared).
+- Every major visual on the site is now REAL owner media. Remaining placeholders: only the 8 small services-row hover images (cosmetic).
 
 ## Backlog / next
 - P0: Swap placeholder contact details (WhatsApp number, email, Instagram) and remaining placeholder media (Gujrock, Rang Kasumbal, Pre-Navratri, hero, story images) in `src/data/site.ts`.

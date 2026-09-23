@@ -99,6 +99,12 @@ export const premiumWork: Project[] = [
     category: "Cultural Experience",
     image: "/media/gujrock-1.jpg",
     video: "",
+    reels: [
+      {
+        label: "GUJROCK — THE SHOWREEL",
+        link: "https://www.instagram.com/reel/DaSvQW6MN8r/",
+      },
+    ],
     reviews: [
       "/media/feedback-1.jpg",
       "/media/feedback-2.jpg",
@@ -259,10 +265,7 @@ export const audienceCategories = [
   "Social Celebrations",
 ];
 
-export const heroImage = u(
-  "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBtYW5kYXAlMjBmbG93ZXJzJTIwZXZlbmluZ3xlbnwwfHx8fDE3OTAxOTM1MDF8MA&ixlib=rb-4.1.0",
-  2200
-);
+export const heroImage = "/media/hero.jpg";
 
 export const storyImages = [
   {
@@ -284,10 +287,10 @@ export const storyImages = [
 ];
 
 export const philosophyImages = [
-  u("https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1000),
-  u("https://images.pexels.com/photos/39341211/pexels-photo-39341211.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", 1000),
-  u("https://images.unsplash.com/photo-1712192682756-ae5b3a8e7508?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1000),
-  u("https://images.unsplash.com/photo-1607861876572-07754b7bba0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBtYW5kYXAlMjBmbG93ZXJzJTIwZXZlbmluZ3xlbnwwfHx8fDE3OTAxOTM1MDF8MA&ixlib=rb-4.1.0", 1000),
+  "/media/tk-7.jpg",
+  "/media/gujrock-dsc.jpg",
+  "/media/khelaiya-7.jpg",
+  "/media/gujrock-7.jpg",
 ];
 
 export const founderImage = "/media/founder.jpg";
