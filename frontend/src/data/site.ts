@@ -20,7 +20,7 @@ const u = (url: string, w = 1800) =>
 
 export interface Reel {
   label: string;
-  embed: string; // Instagram /embed URL
+  link: string; // public Instagram reel URL
 }
 
 export interface Project {
@@ -30,7 +30,7 @@ export interface Project {
   category: string;
   image: string;
   video: string; // YouTube embed or public video URL — leave "" to hide
-  reels?: Reel[]; // short-form films (Instagram embeds)
+  reels?: Reel[]; // short-form films (link out to Instagram)
   reviews?: string[]; // audience feedback screenshots
   gallery: string[];
   location: string;
@@ -50,12 +50,12 @@ export const premiumWork: Project[] = [
     video: "",
     reels: [
       {
-        label: "Prewedding Sangeet",
-        embed: "https://www.instagram.com/reel/DcyZTaWs6bp/embed",
+        label: "PREWEDDING SANGEET",
+        link: "https://www.instagram.com/reel/DcyZTaWs6bp/",
       },
       {
-        label: "Haldi Carnival",
-        embed: "https://www.instagram.com/reel/Dc01WNyqIaT/embed",
+        label: "HALDI MELA",
+        link: "https://www.instagram.com/reel/Dc01WNyqIaT/",
       },
     ],
     gallery: [
@@ -139,51 +139,32 @@ export const premiumWork: Project[] = [
     ],
   },
   {
-    id: "rang-kasumbal-gujarat",
-    title: "RANG KASUMBAL GUJARAT",
-    subtitle: "Gujarati folk-fusion and cultural storytelling.",
-    category: "Cultural Experience",
-    image: u(
-      "https://images.unsplash.com/photo-1712192682756-ae5b3a8e7508?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0"
-    ),
-    video: "",
-    gallery: [
-      u("https://images.unsplash.com/photo-1764014792668-bc484714744f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
-      u("https://images.unsplash.com/photo-1652111132299-ff1056c87b35?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
-    ],
-    location: "Gujarat, India",
-    guests: "An evening woven from colour and memory.",
-    description:
-      "Folk music, storytelling and contemporary stagecraft in a single arc — a cultural evening that honours tradition while feeling utterly present.",
-    highlights: [
-      "Folk virtuosos on a modern stage",
-      "Narrative-driven show flow",
-      "Heritage scenography",
-    ],
-    responsibilities: [
-      "Creative Direction",
-      "Artist & Folk Ensemble Management",
-      "Stage & Scenic Design",
-      "Guest Experience",
-    ],
-  },
-  {
-    id: "pre-navratri-celebrations",
-    title: "PRE-NAVRATRI CELEBRATIONS",
-    subtitle: "High-energy Gujarati celebration and entertainment.",
+    id: "khelaiya-kulture",
+    title: "KHELAIYA KULTURE",
+    subtitle: "A Pre Navaratri Celebration",
     category: "Community Gathering",
-    image: u(
-      "https://images.unsplash.com/photo-1756382616831-998e8baf9675?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0"
-    ),
+    image: "/media/khelaiya-main.jpg",
     video: "",
+    reels: [
+      {
+        label: "KHELAIYA KULTURE — THE SHOWREEL",
+        link: "https://www.instagram.com/reel/DO3MmilDKFw/",
+      },
+    ],
     gallery: [
-      u("https://images.pexels.com/photos/36570979/pexels-photo-36570979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", 1200),
-      u("https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", 1200),
+      "/media/khelaiya-1.jpg",
+      "/media/khelaiya-2.jpg",
+      "/media/khelaiya-3.jpg",
+      "/media/khelaiya-4.jpg",
+      "/media/khelaiya-5.jpg",
+      "/media/khelaiya-6.jpg",
+      "/media/khelaiya-7.jpg",
+      "/media/khelaiya-8.jpg",
     ],
     location: "Gujarat, India",
     guests: "A community becoming one.",
     description:
-      "Before the nine nights begin, the rhythm starts here — dhol, colour and thousands of dancers in perfect, joyful chaos, held together by quiet planning.",
+      "Before the nine nights begin, the rhythm starts here — dhol, colour and hundreds of dancers in perfect, joyful chaos, held together by quiet planning.",
     highlights: [
       "Community-scale celebration",
       "Live dhol & folk orchestration",
@@ -191,7 +172,7 @@ export const premiumWork: Project[] = [
     ],
     responsibilities: [
       "Venue & Ground Management",
-      "Sound for Open Grounds",
+      "Sound for the Celebration",
       "Community Passes & Access",
       "Artist Management",
     ],

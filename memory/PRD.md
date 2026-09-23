@@ -40,10 +40,12 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 - Founder portrait: real photo of Krishna Dhorda (`/media/founder.png`) in the Behind Sadguru section.
 - Story sequence strip: all 4 owner-chosen photos wired — story-bride, story-family, story-crowd, story-community.
 - Contact details are REAL: WhatsApp/Phone +91 93727 49345, email krishnadhorda1@gmail.com, Instagram @sadgurueventplanner_official.
-- Wedding case study: two Instagram reel embeds (Prewedding Sangeet, Haldi Carnival) via /embed iframes.
+- Wedding case study: two "WATCH REEL" box links (PREWEDDING SANGEET, HALDI MELA) that open the Instagram reels in a new tab — no in-page embeds (owner preference).
 - Gujrock case study: real stage/crowd photos (gujrock-1..7, box1/2/5/6, dsc) + highlighted "Words from the audience" review panel (feedback-1..5 screenshots) in a gold-bordered maroon block inside the modal.
-- Project model extended: `reels?: {label, embed}[]` and `reviews?: string[]`.
-- Remaining placeholders: Rang Kasumbal + Pre-Navratri photos, hero image, philosophy strip — owner shares later.
+- Khelaiya Kulture case study (renamed from Pre-Navratri Celebrations): "KHELAIYA KULTURE — A Pre Navaratri Celebration" with 9 real photos (khelaiya-main, khelaiya-1..8) + showreel WATCH REEL box (instagram reel DO3MmilDKFw).
+- Rang Kasumbal Gujarat section REMOVED entirely per owner request.
+- Project model extended: `reels?: {label, link}[]` (link-out boxes) and `reviews?: string[]`.
+- Remaining placeholders: hero image, philosophy strip, services hover images — owner shares later.
 
 ## Backlog / next
 - P0: Swap placeholder contact details (WhatsApp number, email, Instagram) and remaining placeholder media (Gujrock, Rang Kasumbal, Pre-Navratri, hero, story images) in `src/data/site.ts`.

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, MapPin, Users, X, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight, MapPin, Play, Users, X, Check } from "lucide-react";
 import { premiumWork, type Project } from "@/data/site";
 import { Reveal } from "./Reveal";
 import { startScroll, stopScroll } from "@/lib/lenis";
@@ -166,21 +166,31 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {project.reels && project.reels.length > 0 && (
             <div className="mt-12">
               <h4 className="text-[0.62rem] tracking-[0.35em] text-[#C9A24D] uppercase">Films from the celebration</h4>
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
                 {project.reels.map((r) => (
-                  <figure key={r.embed}>
-                    <div className="aspect-[9/16] w-full overflow-hidden border border-[#C9A24D]/20 bg-[#0A0806]">
-                      <iframe
-                        src={r.embed}
-                        title={`${project.title} — ${r.label}`}
-                        className="h-full w-full"
-                        loading="lazy"
-                        allow="encrypted-media; clipboard-write"
-                        allowFullScreen
-                      />
-                    </div>
-                    <figcaption className="mt-3 text-xs text-[#B5A796] italic font-serif">{r.label}</figcaption>
-                  </figure>
+                  <a
+                    key={r.link}
+                    href={r.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={`reel-link-${r.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                    className="group flex flex-col border border-[#C9A24D]/30 bg-[#0A0806] px-6 py-8 transition-[border-color,background-color] duration-500 hover:border-[#C9A24D] hover:bg-[#2A0D16]"
+                  >
+                    <span className="text-[0.6rem] tracking-[0.3em] text-[#C9A24D] uppercase">{r.label}</span>
+                    <span className="mt-6 flex items-center justify-between">
+                      <span className="font-serif text-[#F3ECDD] text-2xl lg:text-3xl tracking-[0.08em] transition-colors duration-500 group-hover:text-[#E6C073]">
+                        WATCH REEL
+                      </span>
+                      <span className="flex items-center gap-3 text-[#C9A24D]">
+                        <Play size={18} strokeWidth={1.5} />
+                        <ArrowUpRight
+                          size={18}
+                          strokeWidth={1.5}
+                          className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                        />
+                      </span>
+                    </span>
+                  </a>
                 ))}
               </div>
             </div>
@@ -259,10 +269,10 @@ export function Portfolio() {
             <ProjectCard project={rest[0]} onOpen={setOpen} tall />
           </Reveal>
         )}
-        <div className="lg:col-span-5 grid grid-rows-2 gap-4 lg:gap-5">
+        <div className="lg:col-span-5 flex flex-col gap-4 lg:gap-5">
           {rest.slice(1).map((p, i) => (
-            <Reveal key={p.id} delay={0.1 + i * 0.08}>
-              <ProjectCard project={p} onOpen={setOpen} />
+            <Reveal key={p.id} delay={0.1 + i * 0.08} className="flex-1">
+              <ProjectCard project={p} onOpen={setOpen} tall={rest.length === 2} />
             </Reveal>
           ))}
         </div>
