@@ -35,8 +35,13 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 - `yarn typecheck` clean; `/api/status` curl OK; public URL 200.
 - Browser pass on public URL: hero, story, services, portfolio, project modal open/close, contact form fill; mobile 390px pass: hamburger menu, nav scroll, 0px horizontal overflow.
 
+## Wired real media (2026-07, follow-up)
+- T&K Wedding: all 10 real photos from the owner's Drive folder now live locally in `frontend/public/media/` — `tk-mainbanner.jpg` (the KARAN & TRUSHA banner) is the featured project image; `tk-1..tk-9` form the case-study gallery (baraat, sangeet stage, decor, rituals).
+- Founder portrait: real photo of Krishna Dhorda (`/media/founder.png`) in the Behind Sadguru section.
+- Remaining placeholders: other three projects, hero, story/philosophy strips, contact details — owner shares later.
+
 ## Backlog / next
-- P0: Swap placeholder contact details (WhatsApp number, email, Instagram) and placeholder media with real event photos/videos in `src/data/site.ts`.
+- P0: Swap placeholder contact details (WhatsApp number, email, Instagram) and remaining placeholder media (Gujrock, Rang Kasumbal, Pre-Navratri, hero, story images) in `src/data/site.ts`.
 - P1: Add real YouTube/showreel embeds per project (`video` field); hero video loop when a video URL is available.
 - P1: Real founder portrait for the About section.
 - P2: Dedicated case-study pages per project (SEO), blog/journal, testimonials strip, multi-language (Gujarati/Hindi) toggle.

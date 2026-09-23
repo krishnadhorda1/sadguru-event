@@ -18,13 +18,13 @@ export function Founder() {
           <div className="overflow-hidden aspect-[3/4] group">
             <img
               src={founderImage}
-              alt="The hush before a celebration begins — the moment that inspired Sadguru Event Planner"
+              alt="Krishna Dhorda, Founder of Sadguru Event Planner"
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+              className="h-full w-full object-cover object-top transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
             />
           </div>
           <p className="mt-4 text-xs text-[#B5A796] italic font-serif">
-            The moment before the lights come up.
+            Krishna Dhorda — the founder behind the feeling.
           </p>
         </Reveal>
 

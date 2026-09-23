@@ -41,17 +41,18 @@ export const premiumWork: Project[] = [
     title: "THE WEDDING EVENT",
     subtitle: "The Grand Wedding Celebration of Trusha & Karan",
     category: "Luxury Wedding",
-    image: u(
-      "https://images.unsplash.com/photo-1611106211090-8f3c79eb8552?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB3ZWRkaW5nJTIwYnJpZGUlMjBncm9vbSUyMGNlcmVtb255JTIwY2luZW1hdGljfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0"
-    ),
+    image: "/media/tk-mainbanner.jpg",
     video: "",
     gallery: [
-      u("https://images.unsplash.com/photo-1727430256509-0f897d6f4765?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB3ZWRkaW5nJTIwYnJpZGUlMjBncm9vbSUyMGNlcmVtb255JTIwY2luZW1hdGljfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
-      u("https://images.pexels.com/photos/39341211/pexels-photo-39341211.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", 1200),
-      u("https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjB3ZWRkaW5nJTIwYnJpZGUlMjBncm9vbSUyMGNlcmVtb255JTIwY2luZW1hdGljfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
-      u("https://images.unsplash.com/photo-1744805624954-a6686543c3ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBtYW5kYXAlMjBmbG93ZXJzJTIwZXZlbmluZ3xlbnwwfHx8fDE3OTAxOTM1MDF8MA&ixlib=rb-4.1.0", 1200),
-      u("https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBtYW5kYXAlMjBmbG93ZXJzJTIwZXZlbmluZ3xlbnwwfHx8fDE3OTAxOTM1MDF8MA&ixlib=rb-4.1.0", 1200),
-      u("https://images.unsplash.com/photo-1665960213508-48f07086d49c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjB3ZWRkaW5nJTIwYnJpZGUlMjBncm9vbSUyMGNlcmVtb255JTIwY2luZW1hdGljfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
+      "/media/tk-1.jpg",
+      "/media/tk-2.jpg",
+      "/media/tk-3.jpg",
+      "/media/tk-4.jpg",
+      "/media/tk-5.jpg",
+      "/media/tk-6.jpg",
+      "/media/tk-7.jpg",
+      "/media/tk-8.png",
+      "/media/tk-9.jpg",
     ],
     location: "Gujarat, India",
     guests: "Two families. One unforgettable celebration.",
@@ -280,7 +281,4 @@ export const philosophyImages = [
   u("https://images.unsplash.com/photo-1607861876572-07754b7bba0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBtYW5kYXAlMjBmbG93ZXJzJTIwZXZlbmluZ3xlbnwwfHx8fDE3OTAxOTM1MDF8MA&ixlib=rb-4.1.0", 1000),
 ];
 
-export const founderImage = u(
-  "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  1200
-);
+export const founderImage = "/media/founder.png";
