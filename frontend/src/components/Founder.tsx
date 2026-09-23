@@ -9,7 +9,7 @@ export function Founder() {
       </Reveal>
       <Reveal delay={0.1}>
         <h2 className="font-serif text-[#F3ECDD] text-4xl sm:text-5xl lg:text-7xl tracking-tight">
-          Behind <em className="italic text-[#E6C073]">Sadguru.</em>
+          Behind <em className="italic text-[#E6C073]">Sadguru Event Planner.</em>
         </h2>
       </Reveal>
 
@@ -58,7 +58,7 @@ export function Founder() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="font-serif text-[#E6C073] text-lg lg:text-xl italic">
-                This is why Sadguru exists.
+                This is why Sadguru Event Planner exists.
               </p>
             </Reveal>
           </div>

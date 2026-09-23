@@ -26,9 +26,9 @@ export default function Home() {
       <StorySequence />
       <Portfolio />
       <Process />
-      <Founder />
       <Philosophy />
       <Audience />
+      <Founder />
       <Closing />
       <Contact />
       <Footer />
