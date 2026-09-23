@@ -257,18 +257,19 @@ export const heroImage = u(
 
 export const storyImages = [
   {
-    src: u("https://images.unsplash.com/photo-1727430256509-0f897d6f4765?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB3ZWRkaW5nJTIwYnJpZGUlMjBncm9vbSUyMGNlcmVtb255JTIwY2luZW1hdGljfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
+    src: "/media/story-bride.jpg",
     caption: "A bride walking into her dream wedding.",
   },
   {
-    src: u("https://images.pexels.com/photos/39341211/pexels-photo-39341211.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", 900),
+    src: "/media/story-family.jpg",
     caption: "A family watching a celebration unfold.",
   },
   {
-    src: u("https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
+    src: "/media/story-crowd.jpg",
     caption: "Thousands of people singing the same line together.",
   },
   {
+    // PENDING: owner's Drive file 1QpOMnXQ69whFxIUMyTXSdVj-f0S4ppbA is not shared publicly
     src: u("https://images.unsplash.com/photo-1756382616831-998e8baf9675?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
     caption: "A community becoming one.",
   },

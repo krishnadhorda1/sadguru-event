@@ -38,7 +38,8 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 ## Wired real media (2026-07, follow-up)
 - T&K Wedding: all 10 real photos from the owner's Drive folder now live locally in `frontend/public/media/` — `tk-mainbanner.jpg` (the KARAN & TRUSHA banner) is the featured project image; `tk-1..tk-9` form the case-study gallery (baraat, sangeet stage, decor, rituals).
 - Founder portrait: real photo of Krishna Dhorda (`/media/founder.png`) in the Behind Sadguru section.
-- Remaining placeholders: other three projects, hero, story/philosophy strips, contact details — owner shares later.
+- Story sequence strip: 3 of 4 owner-chosen photos wired — `/media/story-bride.jpg` (bride entry), `/media/story-family.jpg` (celebration), `/media/story-crowd.jpg` (crowd). The 4th ("A community becoming one", Drive file 1QpOMnXQ69whFxIUMyTXSdVj-f0S4ppbA) is NOT publicly shared (Drive returns sign-in page) — placeholder remains until sharing is set to "Anyone with the link".
+- Remaining placeholders: other three projects, hero, philosophy strip, contact details, 1 story image — owner shares later.
 
 ## Backlog / next
 - P0: Swap placeholder contact details (WhatsApp number, email, Instagram) and remaining placeholder media (Gujrock, Rang Kasumbal, Pre-Navratri, hero, story images) in `src/data/site.ts`.
