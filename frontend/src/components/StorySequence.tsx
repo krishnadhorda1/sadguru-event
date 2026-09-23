@@ -77,32 +77,6 @@ export function StorySequence() {
           { text: "remember.", italic: true },
         ]}
       />
-      <Statement
-        lines={[
-          { text: "Different events." },
-          { text: "Different people." },
-          { text: "Different emotions.", italic: true },
-        ]}
-        align="right"
-      />
-
-      <div className="bg-[#2A0D16] px-6 lg:px-12 py-32 lg:py-48" data-testid="heartbeat-statement">
-        <Reveal>
-          <span className="block text-[0.62rem] tracking-[0.4em] text-[#C9A24D] uppercase mb-8">
-            One responsibility
-          </span>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <span className="block font-serif text-[#F3ECDD] text-[12vw] sm:text-7xl lg:text-9xl leading-[0.98] tracking-tight">
-            To manage every
-          </span>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <span className="block font-serif italic text-[#E6C073] text-[12vw] sm:text-7xl lg:text-9xl leading-[0.98] tracking-tight">
-            heartbeat.
-          </span>
-        </Reveal>
-      </div>
     </section>
   );
 }

@@ -142,6 +142,23 @@ body::after {
   animation: marquee-drift 55s linear infinite;
 }
 
+@keyframes gold-shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, #e6c073 0%, #f3ecdd 25%, #e6c073 50%, #b98a35 75%, #e6c073 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 5s linear infinite;
+}
+
 input,
 select,
 textarea {

@@ -1,73 +1,93 @@
-import { Reveal } from "./Reveal";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
-const steps = [
-  {
-    num: "01",
-    title: "DISCOVER",
-    desc: "We understand your vision, event, audience, expectations and objectives.",
+const container = {
+  hidden: {},
+  show: (baseDelay: number) => ({
+    transition: { staggerChildren: 0.09, delayChildren: baseDelay },
+  }),
+};
+
+const word = {
+  hidden: { y: "115%", rotate: 3 },
+  show: {
+    y: "0%",
+    rotate: 0,
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const },
   },
-  {
-    num: "02",
-    title: "CONCEPT",
-    desc: "We develop the experience, creative direction and event structure.",
-  },
-  {
-    num: "03",
-    title: "PLAN",
-    desc: "We coordinate people, artists, vendors, production, logistics, guests and timelines.",
-  },
-  {
-    num: "04",
-    title: "EXECUTE",
-    desc: "Our team manages the moving parts on the ground.",
-  },
-  {
-    num: "05",
-    title: "EXPERIENCE",
-    desc: "You stop worrying. Your guests start celebrating.",
-  },
-];
+};
+
+function MaskedWords({
+  text,
+  className = "",
+  wordClassName = () => "",
+}: {
+  text: string;
+  className?: string;
+  wordClassName?: (w: string, i: number) => string;
+}) {
+  const words = text.split(" ");
+  return (
+    <>
+      {words.map((w, i) => (
+        <span key={i} className="inline">
+          <span className={`inline-block overflow-hidden pb-[0.08em] -mb-[0.08em] align-bottom ${className}`}>
+            <motion.span className={`inline-block ${wordClassName(w, i)}`} variants={word}>
+              {w}
+            </motion.span>
+          </span>
+          {i < words.length - 1 ? " " : ""}
+        </span>
+      ))}
+    </>
+  );
+}
 
 export function Process() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-15% 0px" });
+
   return (
-    <section id="how-we-work" className="relative bg-[#171310] px-6 lg:px-12 py-28 lg:py-40" data-testid="process-section">
-      <Reveal>
-        <span className="block text-[0.62rem] tracking-[0.4em] text-[#C9A24D] uppercase mb-6">How we work</span>
-      </Reveal>
-      <Reveal delay={0.1}>
-        <h2 className="font-serif text-[#F3ECDD] text-4xl sm:text-5xl lg:text-7xl leading-[1.02] tracking-tight">
-          From idea to <em className="italic text-[#E6C073]">experience.</em>
-        </h2>
-      </Reveal>
+    <section
+      className="relative bg-[#171310] px-6 lg:px-12 py-36 lg:py-56 overflow-hidden"
+      data-testid="process-section"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(61,18,32,0.55)_0%,rgba(23,19,16,0)_60%)]" />
+      <motion.div
+        className="absolute left-6 lg:left-12 top-24 h-px bg-gradient-to-r from-[#C9A24D] to-transparent"
+        initial={{ width: 0 }}
+        animate={inView ? { width: "38%" } : { width: 0 }}
+        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+      />
 
-      <div className="mt-20 lg:mt-28 border-t border-[#F3ECDD]/10">
-        {steps.map((s, i) => (
-          <Reveal key={s.num} delay={Math.min(i * 0.06, 0.3)}>
-            <div
-              className="group grid grid-cols-1 lg:grid-cols-[180px_1fr_1.2fr] gap-4 lg:gap-12 items-baseline border-b border-[#F3ECDD]/10 py-10 lg:py-14"
-              data-testid={`process-step-${s.num}`}
-            >
-              <span className="font-serif italic text-6xl lg:text-8xl text-[#C9A24D]/25 transition-colors duration-700 group-hover:text-[#C9A24D]/60 leading-none">
-                {s.num}
-              </span>
-              <h3 className="font-serif text-[#F3ECDD] text-2xl lg:text-4xl tracking-[0.08em]">{s.title}</h3>
-              <p className="text-[#B5A796] text-sm lg:text-base leading-relaxed max-w-lg">{s.desc}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <div className="mt-24 lg:mt-36 text-center lg:text-left">
-        <Reveal>
-          <span className="block font-serif text-[#F3ECDD] text-[10vw] sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight">
-            You live the moment.
-          </span>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <span className="block font-serif italic text-[#E6C073] text-[10vw] sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight">
-            We handle everything behind it.
-          </span>
-        </Reveal>
+      <div ref={ref} className="relative max-w-6xl">
+        <motion.h2
+          className="font-serif text-[#F3ECDD] text-[11vw] sm:text-6xl lg:text-8xl leading-[1.04] tracking-tight"
+          variants={container}
+          custom={0}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+        >
+          <MaskedWords text="You live the moment." />
+        </motion.h2>
+        <motion.h2
+          className="mt-2 font-serif italic text-[#E6C073] text-[11vw] sm:text-6xl lg:text-8xl leading-[1.04] tracking-tight"
+          variants={container}
+          custom={0.5}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+        >
+          <MaskedWords
+            text="We handle everything behind it."
+            wordClassName={(w) => (w === "everything" ? "text-shimmer" : "")}
+          />
+        </motion.h2>
+        <motion.div
+          className="mt-12 h-px w-40 origin-left bg-[#C9A24D]"
+          initial={{ scaleX: 0 }}
+          animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 1.4, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        />
       </div>
     </section>
   );

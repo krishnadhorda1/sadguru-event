@@ -50,6 +50,8 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 - Philosophy strip: 4 real emotional photos (tk-7, gujrock-dsc, khelaiya-7, gujrock-7 — all files previously shared).
 - Hero: now a real VIDEO loop (`/media/hero-loop.mp4` H.264 for Chrome/Safari + `/media/hero-loop.webm` VP9 fallback for Chromium/Firefox — original Drive file was HEVC, transcoded) with hero.jpg poster and programmatic play() fallback.
 - "WHAT WE DO" section REMOVED entirely per owner (section, nav link, footer link, services data, Services.tsx deleted).
+- Story sequence trimmed per owner: removed "Different events / people / emotions" and "One responsibility — To manage every heartbeat" blocks; sequence now ends at "Moments people remember."
+- "HOW WE WORK" section REMOVED per owner (5 steps, nav + footer links gone). Kept only the closing line "You live the moment. / We handle everything behind it." as a standalone cinematic band (Process.tsx) with word-by-word masked reveal, gold shimmer on "everything", self-drawing gold rules, maroon glow.
 - Every major visual on the site is now REAL owner media.
 
 ## Backlog / next
