@@ -1,24 +1,27 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // SADGURU EVENT PLANNER — central content file.
-// Replace the PLACEHOLDER contact details and the image / video URLs below with
-// real media. To add a new project, add one more object to `premiumWork`.
+// Replace the PLACEHOLDER image / video URLs below with real media as it is
+// shared. To add a new project, add one more object to `premiumWork`.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const site = {
   name: "Sadguru Event Planner",
   tagline: "Weddings · Cultural Shows · Community Gatherings · Live Concerts",
-  // PLACEHOLDER — replace with the real WhatsApp number (country code, no + or spaces)
-  whatsappNumber: "919876543210",
-  // PLACEHOLDER — display details
-  phoneDisplay: "+91 98765 43210",
-  email: "hello@sadgurueventplanner.com",
-  instagramHandle: "@sadgurueventplanner",
-  instagramUrl: "https://instagram.com/sadgurueventplanner",
+  whatsappNumber: "919372749345",
+  phoneDisplay: "+91 93727 49345",
+  email: "krishnadhorda1@gmail.com",
+  instagramHandle: "@sadgurueventplanner_official",
+  instagramUrl: "https://www.instagram.com/sadgurueventplanner_official",
   location: "Gujarat, India — creating everywhere",
 };
 
 const u = (url: string, w = 1800) =>
   url.includes("pexels.com") ? url : `${url}&w=${w}&q=80&auto=format&fit=crop`;
+
+export interface Reel {
+  label: string;
+  embed: string; // Instagram /embed URL
+}
 
 export interface Project {
   id: string;
@@ -27,6 +30,8 @@ export interface Project {
   category: string;
   image: string;
   video: string; // YouTube embed or public video URL — leave "" to hide
+  reels?: Reel[]; // short-form films (Instagram embeds)
+  reviews?: string[]; // audience feedback screenshots
   gallery: string[];
   location: string;
   guests: string;
@@ -43,6 +48,16 @@ export const premiumWork: Project[] = [
     category: "Luxury Wedding",
     image: "/media/tk-mainbanner.jpg",
     video: "",
+    reels: [
+      {
+        label: "Prewedding Sangeet",
+        embed: "https://www.instagram.com/reel/DcyZTaWs6bp/embed",
+      },
+      {
+        label: "Haldi Carnival",
+        embed: "https://www.instagram.com/reel/Dc01WNyqIaT/embed",
+      },
+    ],
     gallery: [
       "/media/tk-1.jpg",
       "/media/tk-2.jpg",
@@ -82,30 +97,43 @@ export const premiumWork: Project[] = [
     title: "GUJROCK",
     subtitle: "Gujarati Roots. Modern Beats.",
     category: "Cultural Experience",
-    image: u(
-      "https://images.unsplash.com/photo-1565035010268-a3816f98589a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHw0fHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0"
-    ),
+    image: "/media/gujrock-1.jpg",
     video: "",
+    reviews: [
+      "/media/feedback-1.jpg",
+      "/media/feedback-2.jpg",
+      "/media/feedback-3.jpg",
+      "/media/feedback-4.jpg",
+      "/media/feedback-5.jpg",
+    ],
     gallery: [
-      u("https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
-      u("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwyfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
-      u("https://images.unsplash.com/photo-1459749411175-04bf5292ceea?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxjb25jZXJ0JTIwc3RhZ2UlMjBjcm93ZCUyMGRyYW1hdGljJTIwbGlnaHRzfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 1200),
+      "/media/gujrock-2.jpg",
+      "/media/gujrock-3.jpg",
+      "/media/gujrock-4.jpg",
+      "/media/gujrock-5.jpg",
+      "/media/gujrock-6.jpg",
+      "/media/gujrock-7.jpg",
+      "/media/gujrock-box1.jpg",
+      "/media/gujrock-box2.jpg",
+      "/media/gujrock-box5.jpg",
+      "/media/gujrock-box6.jpg",
+      "/media/gujrock-dsc.jpg",
     ],
     location: "Gujarat, India",
     guests: "A crowd singing every line together.",
     description:
-      "Where heritage meets amplifiers. Gujrock pairs the soul of Gujarati music with the scale of a modern arena show — artists, light, sound and thousands of voices moving as one.",
+      "Where heritage meets amplifiers. Gujrock pairs the soul of Gujarati music with the scale of a modern stage show — artists, light, sound and hundreds of voices moving as one.",
     highlights: [
-      "Monumental stage architecture",
-      "Artist line-up curation",
-      "Intelligent lighting design",
+      "Concept by Sunil Soni, staged by Sadguru",
+      "A Gujarati musical journey across cities",
+      "Intelligent lighting and live band production",
       "A crowd that became the chorus",
     ],
     responsibilities: [
       "Stage & Production Design",
       "Sound & Lighting Engineering",
       "Artist Coordination",
-      "Crowd Flow & Safety",
+      "Crowd Flow & Seating",
       "Backstage Management",
       "Show Calling",
     ],
@@ -269,8 +297,7 @@ export const storyImages = [
     caption: "Thousands of people singing the same line together.",
   },
   {
-    // PENDING: owner's Drive file 1QpOMnXQ69whFxIUMyTXSdVj-f0S4ppbA is not shared publicly
-    src: u("https://images.unsplash.com/photo-1756382616831-998e8baf9675?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBjbGFzc2ljYWwlMjBmb2xrJTIwZGFuY2UlMjBzdGFnZSUyMHBlcmZvcm1hbmNlfGVufDB8fHx8MTc5MDE5MzUwMXww&ixlib=rb-4.1.0", 900),
+    src: "/media/story-community.jpg",
     caption: "A community becoming one.",
   },
 ];
@@ -282,4 +309,4 @@ export const philosophyImages = [
   u("https://images.unsplash.com/photo-1607861876572-07754b7bba0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBtYW5kYXAlMjBmbG93ZXJzJTIwZXZlbmluZ3xlbnwwfHx8fDE3OTAxOTM1MDF8MA&ixlib=rb-4.1.0", 1000),
 ];
 
-export const founderImage = "/media/founder.png";
+export const founderImage = "/media/founder.jpg";

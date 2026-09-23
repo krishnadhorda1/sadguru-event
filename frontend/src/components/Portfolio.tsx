@@ -163,6 +163,54 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             </div>
           )}
 
+          {project.reels && project.reels.length > 0 && (
+            <div className="mt-12">
+              <h4 className="text-[0.62rem] tracking-[0.35em] text-[#C9A24D] uppercase">Films from the celebration</h4>
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+                {project.reels.map((r) => (
+                  <figure key={r.embed}>
+                    <div className="aspect-[9/16] w-full overflow-hidden border border-[#C9A24D]/20 bg-[#0A0806]">
+                      <iframe
+                        src={r.embed}
+                        title={`${project.title} — ${r.label}`}
+                        className="h-full w-full"
+                        loading="lazy"
+                        allow="encrypted-media; clipboard-write"
+                        allowFullScreen
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-xs text-[#B5A796] italic font-serif">{r.label}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {project.reviews && project.reviews.length > 0 && (
+            <div
+              className="mt-12 border border-[#C9A24D]/40 bg-[#2A0D16] px-6 lg:px-10 py-10"
+              data-testid="project-reviews"
+            >
+              <span className="block text-[0.62rem] tracking-[0.35em] text-[#C9A24D] uppercase">
+                Highlight — words from the audience
+              </span>
+              <h4 className="mt-4 font-serif text-[#F3ECDD] text-2xl lg:text-4xl">
+                What the crowd said <em className="italic text-[#E6C073]">after the lights dimmed.</em>
+              </h4>
+              <div className="mt-8 flex gap-4 overflow-x-auto pb-2">
+                {project.reviews.map((r, i) => (
+                  <img
+                    key={i}
+                    src={r}
+                    alt={`Audience feedback ${i + 1} for ${project.title}`}
+                    loading="lazy"
+                    className="h-56 lg:h-72 w-auto shrink-0 border border-[#F3ECDD]/15 bg-[#0A0806]"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {project.gallery.map((g, i) => (
               <div key={i} className="group/img overflow-hidden aspect-[4/3]">

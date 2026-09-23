@@ -38,8 +38,12 @@ Luxury wedding families, destination/NRI wedding planners, corporates, Gujarati 
 ## Wired real media (2026-07, follow-up)
 - T&K Wedding: all 10 real photos from the owner's Drive folder now live locally in `frontend/public/media/` — `tk-mainbanner.jpg` (the KARAN & TRUSHA banner) is the featured project image; `tk-1..tk-9` form the case-study gallery (baraat, sangeet stage, decor, rituals).
 - Founder portrait: real photo of Krishna Dhorda (`/media/founder.png`) in the Behind Sadguru section.
-- Story sequence strip: 3 of 4 owner-chosen photos wired — `/media/story-bride.jpg` (bride entry), `/media/story-family.jpg` (celebration), `/media/story-crowd.jpg` (crowd). The 4th ("A community becoming one", Drive file 1QpOMnXQ69whFxIUMyTXSdVj-f0S4ppbA) is NOT publicly shared (Drive returns sign-in page) — placeholder remains until sharing is set to "Anyone with the link".
-- Remaining placeholders: other three projects, hero, philosophy strip, contact details, 1 story image — owner shares later.
+- Story sequence strip: all 4 owner-chosen photos wired — story-bride, story-family, story-crowd, story-community.
+- Contact details are REAL: WhatsApp/Phone +91 93727 49345, email krishnadhorda1@gmail.com, Instagram @sadgurueventplanner_official.
+- Wedding case study: two Instagram reel embeds (Prewedding Sangeet, Haldi Carnival) via /embed iframes.
+- Gujrock case study: real stage/crowd photos (gujrock-1..7, box1/2/5/6, dsc) + highlighted "Words from the audience" review panel (feedback-1..5 screenshots) in a gold-bordered maroon block inside the modal.
+- Project model extended: `reels?: {label, embed}[]` and `reviews?: string[]`.
+- Remaining placeholders: Rang Kasumbal + Pre-Navratri photos, hero image, philosophy strip — owner shares later.
 
 ## Backlog / next
 - P0: Swap placeholder contact details (WhatsApp number, email, Instagram) and remaining placeholder media (Gujrock, Rang Kasumbal, Pre-Navratri, hero, story images) in `src/data/site.ts`.
