@@ -12,7 +12,7 @@ export const site = {
   email: "krishnadhorda1@gmail.com",
   instagramHandle: "@sadgurueventplanner_official",
   instagramUrl: "https://www.instagram.com/sadgurueventplanner_official",
-  location: "Gujarat, India — creating everywhere",
+  location: "Mumbai, India — creating everywhere",
 };
 
 const u = (url: string, w = 1800) =>
@@ -50,12 +50,20 @@ export const premiumWork: Project[] = [
     video: "",
     reels: [
       {
-        label: "PREWEDDING SANGEET",
+        label: "PRE-WEDDING SANGEET",
         link: "https://www.instagram.com/reel/DcyZTaWs6bp/",
       },
       {
         label: "HALDI MELA",
         link: "https://www.instagram.com/reel/Dc01WNyqIaT/",
+      },
+      {
+        label: "Marriage mangalam : A culture evening",
+        link: "#",
+      },
+      {
+        label: "The Royal Pheras",
+        link: "#",
       },
     ],
     gallery: [
@@ -69,7 +77,7 @@ export const premiumWork: Project[] = [
       "/media/tk-8.png",
       "/media/tk-9.jpg",
     ],
-    location: "Gujarat, India",
+    location: "Mumbai, India",
     guests: "Two families. One unforgettable celebration.",
     description:
       "A wedding planned like a film — every entry timed, every guest received, every detail invisible until it became a memory. From the first RSVP call to the final farewell, Sadguru carried the complexity so the families could carry the moment.",
@@ -125,7 +133,7 @@ export const premiumWork: Project[] = [
       "/media/gujrock-box6.jpg",
       "/media/gujrock-dsc.jpg",
     ],
-    location: "Gujarat, India",
+    location: "Mumbai, India",
     guests: "A crowd singing every line together.",
     description:
       "Where heritage meets amplifiers. Gujrock pairs the soul of Gujarati music with the scale of a modern stage show — artists, light, sound and hundreds of voices moving as one.",
@@ -167,7 +175,7 @@ export const premiumWork: Project[] = [
       "/media/khelaiya-7.jpg",
       "/media/khelaiya-8.jpg",
     ],
-    location: "Gujarat, India",
+    location: "Mumbai, India",
     guests: "A community becoming one.",
     description:
       "Before the nine nights begin, the rhythm starts here — dhol, colour and hundreds of dancers in perfect, joyful chaos, held together by quiet planning.",
@@ -200,18 +208,117 @@ export const eventTypes = [
   "Something Else",
 ];
 
-export const audienceCategories = [
-  "Weddings",
-  "Destination Weddings",
-  "Corporate Events",
-  "Cultural Events",
-  "Community Gatherings",
-  "Live Concerts",
-  "Concept Shows",
-  "Private Celebrations",
-  "NRI / International Events",
-  "Luxury Events",
-  "Social Celebrations",
+export const audienceEvents = [
+  {
+    id: "weddings",
+    label: "Weddings",
+    icon: "💍",
+    tagline: "From the first RSVP to the final farewell.",
+    description:
+      "Every ritual, every guest, every detail orchestrated into a seamless memory your family relives for decades.",
+    color: "#E6C073",
+    x: 8, y: 12, floatDuration: 6.2, floatDelay: 0,
+  },
+  {
+    id: "destination",
+    label: "Destination Weddings",
+    icon: "✈️",
+    tagline: "A celebration, not just a location.",
+    description:
+      "Across cities, countries, and time zones — we handle the complexity so your guests only feel the magic.",
+    color: "#D4A853",
+    x: 52, y: 6, floatDuration: 7.1, floatDelay: 0.8,
+  },
+  {
+    id: "corporate",
+    label: "Corporate Events",
+    icon: "🏆",
+    tagline: "Precision meets presence.",
+    description:
+      "Brand launches, awards nights, product reveals — executed with strategic discipline and premium storytelling.",
+    color: "#C9A24D",
+    x: 78, y: 18, floatDuration: 5.8, floatDelay: 1.5,
+  },
+  {
+    id: "cultural",
+    label: "Cultural Events",
+    icon: "🎊",
+    tagline: "Heritage, celebrated at scale.",
+    description:
+      "Garba nights, Navratri galas, traditional ceremonies — we preserve the soul while elevating every element.",
+    color: "#E6C073",
+    x: 22, y: 42, floatDuration: 8.0, floatDelay: 0.3,
+  },
+  {
+    id: "community",
+    label: "Community Gatherings",
+    icon: "🌟",
+    tagline: "Thousands of people. One shared feeling.",
+    description:
+      "When a community gathers, we ensure the energy builds from the entry gate to the final bow.",
+    color: "#D4A853",
+    x: 60, y: 38, floatDuration: 6.5, floatDelay: 1.1,
+  },
+  {
+    id: "concerts",
+    label: "Live Concerts",
+    icon: "🎸",
+    tagline: "Sound, light, and a crowd that won't forget.",
+    description:
+      "Artist management, stage production, sound design — we run the show behind the show.",
+    color: "#C9A24D",
+    x: 85, y: 50, floatDuration: 7.4, floatDelay: 0.6,
+  },
+  {
+    id: "concept",
+    label: "Concept Shows",
+    icon: "🎭",
+    tagline: "Events that don't exist — until we build them.",
+    description:
+      "Original immersive experiences, themed journeys, and curated performances created from a blank canvas.",
+    color: "#E6C073",
+    x: 5, y: 65, floatDuration: 5.5, floatDelay: 2.0,
+  },
+  {
+    id: "private",
+    label: "Private Celebrations",
+    icon: "🥂",
+    tagline: "Intimate. Exclusive. Unforgettable.",
+    description:
+      "Birthdays, anniversaries, milestones — we treat your private moment with the same care as a 5,000-person event.",
+    color: "#D4A853",
+    x: 38, y: 70, floatDuration: 6.8, floatDelay: 0.4,
+  },
+  {
+    id: "nri",
+    label: "NRI / International",
+    icon: "🌏",
+    tagline: "Home, wherever you are.",
+    description:
+      "We bring the warmth of Indian celebrations anywhere in the world, coordinating across cultures and continents.",
+    color: "#C9A24D",
+    x: 68, y: 72, floatDuration: 7.6, floatDelay: 1.7,
+  },
+  {
+    id: "luxury",
+    label: "Luxury Events",
+    icon: "👑",
+    tagline: "When nothing less than perfect is acceptable.",
+    description:
+      "Curated vendors, bespoke decor, white-glove service — every element elevated beyond expectation.",
+    color: "#E6C073",
+    x: 15, y: 85, floatDuration: 6.0, floatDelay: 0.9,
+  },
+  {
+    id: "social",
+    label: "Social Celebrations",
+    icon: "🎈",
+    tagline: "Every reason to celebrate deserves to be remembered.",
+    description:
+      "Engagements, baby showers, farewell parties — life's quieter milestones, made extraordinary.",
+    color: "#D4A853",
+    x: 58, y: 88, floatDuration: 7.2, floatDelay: 1.3,
+  },
 ];
 
 export const heroImage = "/media/hero.jpg";
