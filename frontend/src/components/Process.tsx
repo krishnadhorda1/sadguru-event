@@ -8,7 +8,7 @@ export function Process() {
 
   return (
     <section
-      className="relative bg-[#171310] px-6 lg:px-12 py-36 lg:py-56 overflow-hidden"
+      className="relative bg-[#0A0806] px-6 lg:px-12 py-36 lg:py-56 overflow-hidden"
       data-testid="process-section"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(61,18,32,0.55)_0%,rgba(23,19,16,0)_60%)]" />
@@ -19,25 +19,22 @@ export function Process() {
         transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      <div ref={ref} className="relative max-w-6xl">
+      <div ref={ref} className="relative w-full">
         <motion.h2
-          className="font-serif text-[#F3ECDD] text-[11vw] sm:text-6xl lg:text-8xl leading-[1.04] tracking-tight"
+          className="font-serif text-[11vw] sm:text-5xl lg:text-[5.5rem] xl:text-[7rem] leading-[1.04] tracking-tight flex flex-wrap gap-x-3 lg:gap-x-6"
           variants={wordsContainer(0)}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
-          <MaskedWords text="You live the moment." />
-        </motion.h2>
-        <motion.h2
-          className="mt-2 font-serif italic text-[#E6C073] text-[11vw] sm:text-6xl lg:text-8xl leading-[1.04] tracking-tight"
-          variants={wordsContainer(0.5)}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-        >
-          <MaskedWords
-            text="We handle everything behind it."
-            wordClassName={(w) => (w === "everything" ? "text-shimmer" : "")}
-          />
+          <span className="text-[#F3ECDD]">
+            <MaskedWords text="You live the moment." />
+          </span>
+          <span className="italic text-[#E6C073]">
+            <MaskedWords
+              text="We handle everything behind it."
+              wordClassName={(w) => (w === "everything" ? "text-shimmer" : "")}
+            />
+          </span>
         </motion.h2>
         <motion.div
           className="mt-12 h-px w-40 origin-left bg-[#C9A24D]"

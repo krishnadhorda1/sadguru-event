@@ -1,11 +1,101 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, Mail, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Mail, MessageCircle, Phone, ArrowUpRight } from "lucide-react";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import { eventTypes, site } from "@/data/site";
 import { Reveal } from "./Reveal";
+import { motion } from "motion/react";
 
-const inputClass =
-  "w-full bg-transparent border-b border-[#F3ECDD]/20 focus:border-[#C9A24D] outline-none py-3 text-[#F3ECDD] placeholder:text-[#F3ECDD]/30 text-sm lg:text-base transition-colors duration-500";
+const formContainerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const fieldVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+function FloatingField({
+  label,
+  type = "text",
+  value,
+  onChange,
+  options,
+  required,
+  as = "input",
+  ...props
+}: any) {
+  const [focused, setFocused] = useState(false);
+  const active = focused || !!value;
+  // HTML Date inputs always show placeholder-like text when empty, so label must stay up.
+  const isDate = type === "date";
+  const labelUp = active || isDate;
+
+  return (
+    <motion.div variants={fieldVariants} className="relative group w-full">
+      <label
+        className={`absolute left-0 pointer-events-none transition-all duration-400 z-10 ${
+          labelUp
+            ? "-top-1 text-[0.65rem] tracking-[0.2em] uppercase text-[#C9A24D]"
+            : "top-4 text-sm lg:text-base text-[#F3ECDD]/40"
+        }`}
+      >
+        {label} {required && "*"}
+      </label>
+
+      {as === "select" ? (
+        <select
+          value={value}
+          onChange={onChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          className={`w-full bg-transparent border-b border-[#F3ECDD]/10 outline-none pt-5 pb-2 text-[#F3ECDD] text-sm lg:text-base transition-colors duration-300 appearance-none cursor-pointer ${
+            value ? "" : "text-transparent"
+          }`}
+          {...props}
+        >
+          <option value="" disabled className="bg-[#171310] hidden"></option>
+          {options.map((opt: string) => (
+            <option key={opt} value={opt} className="bg-[#171310] text-[#F3ECDD]">
+              {opt}
+            </option>
+          ))}
+        </select>
+      ) : as === "textarea" ? (
+        <textarea
+          value={value}
+          onChange={onChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          className="w-full bg-transparent border-b border-[#F3ECDD]/10 outline-none pt-5 pb-2 text-[#F3ECDD] text-sm lg:text-base transition-colors duration-300 resize-none relative z-20"
+          {...props}
+        />
+      ) : (
+        <input
+          type={type}
+          value={value}
+          onChange={onChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          className={`w-full bg-transparent border-b border-[#F3ECDD]/10 outline-none pt-5 pb-2 text-[#F3ECDD] text-sm lg:text-base transition-colors duration-300 relative z-20 ${
+            isDate && !value && !focused ? "text-transparent" : ""
+          }`}
+          {...props}
+        />
+      )}
+
+      {/* Animated Golden Border */}
+      <span
+        className={`absolute bottom-0 left-0 h-[1px] bg-[#C9A24D] transition-all duration-500 ease-out origin-left z-30 ${
+          focused ? "w-full" : "w-0 group-hover:w-full group-hover:bg-[#C9A24D]/30"
+        }`}
+      />
+    </motion.div>
+  );
+}
 
 export function Contact() {
   const [form, setForm] = useState({
@@ -20,7 +110,7 @@ export function Contact() {
   });
 
   const set = (key: keyof typeof form) => (e: { target: { value: string } }) =>
-    setForm((f) => ({ ...f, [key]: e.target.value }));
+    setForm(f => ({ ...f, [key]: e.target.value }));
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -43,13 +133,6 @@ export function Contact() {
   };
 
   const channels = [
-    {
-      label: "WhatsApp",
-      value: site.phoneDisplay,
-      href: `https://wa.me/${site.whatsappNumber}`,
-      icon: <MessageCircle size={18} strokeWidth={1.5} />,
-      testid: "contact-whatsapp-link",
-    },
     {
       label: "Phone",
       value: site.phoneDisplay,
@@ -74,7 +157,13 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative bg-[#171310] px-6 lg:px-12 py-28 lg:py-40" data-testid="contact-section">
+    <section
+      id="contact"
+      className="relative bg-[#0A0806] px-6 lg:px-12 py-28 lg:py-40"
+      data-testid="contact-section"
+    >
+      {/* Subtle ambient glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_0%,rgba(61,18,32,0.35)_0%,rgba(10,8,6,0)_55%)] pointer-events-none" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
         <div>
           <Reveal>
@@ -84,7 +173,8 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-serif text-[#F3ECDD] text-4xl sm:text-5xl lg:text-7xl leading-[1.02] tracking-tight">
-              Let's talk about <em className="italic text-[#E6C073]">your event.</em>
+              Let's talk about{" "}
+              <em className="italic text-[#E6C073]">your event.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.18}>
@@ -93,132 +183,112 @@ export function Contact() {
             </p>
           </Reveal>
 
-          <div className="mt-14 space-y-1">
-            {channels.map((c) => (
-              <Reveal key={c.label} delay={0.05}>
+          <div className="mt-16 space-y-2">
+            {channels.map((c, i) => (
+              <Reveal key={c.label} delay={0.2 + i * 0.1}>
                 <a
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
                   data-testid={c.testid}
-                  className="group flex items-center gap-5 border-b border-[#F3ECDD]/10 py-5"
+                  className="group flex items-center gap-6 py-5 border-b border-[#F3ECDD]/10 transition-colors duration-500 hover:border-[#C9A24D]/40"
                 >
-                  <span className="text-[#C9A24D]">{c.icon}</span>
-                  <span className="w-24 text-[0.6rem] tracking-[0.3em] text-[#B5A796] uppercase shrink-0">
+                  <span className="text-[#C9A24D] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                    {c.icon}
+                  </span>
+                  <span className="w-24 text-[0.6rem] tracking-[0.3em] text-[#B5A796] uppercase shrink-0 transition-colors duration-500 group-hover:text-[#E6C073]">
                     {c.label}
                   </span>
-                  <span className="text-[#F3ECDD]/85 text-sm lg:text-base transition-colors duration-300 group-hover:text-[#E6C073]">
+                  <span className="flex-1 text-[#F3ECDD]/80 text-sm lg:text-base font-light transition-colors duration-500 group-hover:text-[#F3ECDD]">
                     {c.value}
                   </span>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-[#C9A24D] opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0"
+                  />
                 </a>
               </Reveal>
             ))}
           </div>
           <Reveal delay={0.1}>
-            <p className="mt-8 text-xs text-[#B5A796] tracking-[0.15em] uppercase">{site.location}</p>
+            <p className="mt-8 text-xs text-[#B5A796] tracking-[0.15em] uppercase">
+              {site.location}
+            </p>
           </Reveal>
         </div>
 
-        <Reveal delay={0.15}>
-          <form onSubmit={submit} className="space-y-8 lg:pt-24" data-testid="contact-form">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <input
-                required
-                value={form.name}
-                onChange={set("name")}
-                placeholder="Name *"
-                className={inputClass}
-                data-testid="contact-name-input"
-                aria-label="Name"
-              />
-              <input
-                required
-                value={form.phone}
-                onChange={set("phone")}
-                placeholder="Phone Number *"
-                type="tel"
-                className={inputClass}
-                data-testid="contact-phone-input"
-                aria-label="Phone number"
-              />
-            </div>
-            <input
-              value={form.email}
-              onChange={set("email")}
-              placeholder="Email"
-              type="email"
-              className={inputClass}
-              data-testid="contact-email-input"
-              aria-label="Email"
+        <motion.form
+          onSubmit={submit}
+          variants={formContainerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-15% 0px" }}
+          className="space-y-8 lg:pt-24"
+          data-testid="contact-form"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <FloatingField label="Name" required value={form.name} onChange={set("name")} />
+            <FloatingField
+              label="Phone Number"
+              required
+              type="tel"
+              value={form.phone}
+              onChange={set("phone")}
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <select
-                required
-                value={form.eventType}
-                onChange={set("eventType")}
-                className={`${inputClass} ${form.eventType ? "" : "text-[#F3ECDD]/30"}`}
-                data-testid="contact-event-type-select"
-                aria-label="Event type"
-              >
-                <option value="" disabled className="bg-[#171310]">
-                  Event Type *
-                </option>
-                {eventTypes.map((t) => (
-                  <option key={t} value={t} className="bg-[#171310] text-[#F3ECDD]">
-                    {t}
-                  </option>
-                ))}
-              </select>
-              <input
-                value={form.eventDate}
-                onChange={set("eventDate")}
-                type="date"
-                className={inputClass}
-                data-testid="contact-event-date-input"
-                aria-label="Event date"
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <input
-                value={form.city}
-                onChange={set("city")}
-                placeholder="City / Venue"
-                className={inputClass}
-                data-testid="contact-city-input"
-                aria-label="City or venue"
-              />
-              <input
-                value={form.guests}
-                onChange={set("guests")}
-                placeholder="Estimated Guest Count"
-                inputMode="numeric"
-                className={inputClass}
-                data-testid="contact-guests-input"
-                aria-label="Estimated guest count"
-              />
-            </div>
-            <textarea
-              value={form.about}
-              onChange={set("about")}
-              placeholder="Tell us about your event"
-              rows={4}
-              className={`${inputClass} resize-none`}
-              data-testid="contact-about-textarea"
-              aria-label="Tell us about your event"
+          </div>
+          <FloatingField label="Email" type="email" value={form.email} onChange={set("email")} />
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <FloatingField
+              as="select"
+              label="Event Type"
+              required
+              options={eventTypes}
+              value={form.eventType}
+              onChange={set("eventType")}
             />
+            <FloatingField
+              label="Event Date"
+              type="date"
+              value={form.eventDate}
+              onChange={set("eventDate")}
+            />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <FloatingField label="City / Venue" value={form.city} onChange={set("city")} />
+            <FloatingField
+              label="Estimated Guest Count"
+              inputMode="numeric"
+              value={form.guests}
+              onChange={set("guests")}
+            />
+          </div>
+          <FloatingField
+            as="textarea"
+            label="Tell us about your event"
+            rows={4}
+            value={form.about}
+            onChange={set("about")}
+          />
+          
+          <motion.div variants={fieldVariants} className="pt-4">
             <button
               type="submit"
               data-testid="contact-form-submit-button"
               className="group inline-flex items-center gap-3 rounded-full bg-[#C9A24D] px-8 py-4 text-[0.68rem] tracking-[0.28em] text-[#0A0806] transition-[background-color,transform] duration-500 hover:bg-[#E6C073] hover:scale-[1.03]"
             >
               START A CONVERSATION
-              <ArrowRight size={15} className="transition-transform duration-500 group-hover:translate-x-1.5" />
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-500 group-hover:translate-x-1.5"
+              />
             </button>
-            <p className="text-xs text-[#B5A796]/70">
-              This opens WhatsApp with your details pre-written. Nothing is stored on our servers.
+            <p className="mt-4 text-xs text-[#B5A796]/70">
+              This opens WhatsApp with your details pre-written. Nothing is
+              stored on our servers.
             </p>
-          </form>
-        </Reveal>
+          </motion.div>
+        </motion.form>
       </div>
     </section>
   );

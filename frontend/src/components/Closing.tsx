@@ -1,106 +1,60 @@
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { scrollToId } from "@/lib/lenis";
-import { MaskedWords, wordsContainer } from "./MaskedWords";
-
-interface BeatLine {
-  text: string;
-  italic?: boolean;
-  shimmer?: string[];
-}
-
-function Beat({
-  lines,
-  delay = 0,
-  big = false,
-  showRule = true,
-}: {
-  lines: BeatLine[];
-  delay?: number;
-  big?: boolean;
-  showRule?: boolean;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-18% 0px" });
-  const size = big
-    ? "text-[12vw] sm:text-6xl lg:text-8xl"
-    : "text-[9.5vw] sm:text-5xl lg:text-7xl";
-
-  return (
-    <div ref={ref}>
-      {lines.map((l, li) => (
-        <motion.h2
-          key={li}
-          className={`font-serif leading-[1.08] tracking-tight ${size} ${
-            l.italic ? "italic text-[#E6C073]" : "text-[#F3ECDD]/90"
-          }`}
-          variants={wordsContainer(delay + li * 0.22)}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-        >
-          <MaskedWords
-            text={l.text}
-            wordClassName={(w) => (l.shimmer?.includes(w) ? "text-shimmer" : "")}
-          />
-        </motion.h2>
-      ))}
-      {showRule && (
-        <motion.div
-          className="mt-12 h-px w-28 origin-left bg-[#C9A24D]/70"
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={inView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
-          transition={{ duration: 1.3, delay: delay + lines.length * 0.22 + 0.4, ease: [0.16, 1, 0.3, 1] }}
-        />
-      )}
-    </div>
-  );
-}
 
 export function Closing() {
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const ctaInView = useInView(ctaRef, { once: true, margin: "-15% 0px" });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Create a 3-phase scroll sequence using framer-motion scroll mapping
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Block 2 fades in between 20% and 45% of the scroll, and stays visible until the end (1)
+  const opacity2 = useTransform(scrollYProgress, [0.2, 0.45, 1], [0, 1, 1]);
+  const y2 = useTransform(scrollYProgress, [0.2, 0.45, 1], [40, 0, 0]);
+
+  // Block 3 (and CTA) fades in between 60% and 85% of the scroll
+  const opacity3 = useTransform(scrollYProgress, [0.6, 0.85, 1], [0, 1, 1]);
+  const y3 = useTransform(scrollYProgress, [0.6, 0.85, 1], [40, 0, 0]);
 
   return (
     <section
-      className="relative bg-[#0A0806] px-6 lg:px-12 py-40 lg:py-64 overflow-hidden"
+      ref={containerRef}
+      className="relative bg-[#0A0806] h-[300vh]"
       data-testid="closing-sequence"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(61,18,32,0.55)_0%,rgba(10,8,6,0)_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_10%,rgba(201,162,77,0.07)_0%,rgba(10,8,6,0)_55%)]" />
+      {/* Sticky container pins the content to the screen while scrolling the 300vh section */}
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(61,18,32,0.55)_0%,rgba(10,8,6,0)_65%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_10%,rgba(201,162,77,0.07)_0%,rgba(10,8,6,0)_55%)] pointer-events-none" />
 
-      <div className="relative max-w-6xl space-y-32 lg:space-y-44">
-        <Beat
-          lines={[
-            { text: "Your event" },
-            { text: "is more than" },
-            { text: "a date on a calendar." },
-          ]}
-        />
-        <Beat
-          delay={0.1}
-          lines={[
-            { text: "It's a memory", shimmer: ["memory"] },
-            { text: "someone will carry" },
-            { text: "for the rest of their life." },
-          ]}
-        />
-        <Beat
-          big
-          showRule={false}
-          delay={0.1}
-          lines={[
-            { text: "Let's make it", italic: true },
-            { text: "worth remembering.", italic: true, shimmer: ["worth", "remembering."] },
-          ]}
-        />
+        <div className="relative z-10 w-full max-w-6xl px-6 lg:px-12 flex flex-col items-center justify-center text-center gap-8 lg:gap-10">
+          {/* Phase 1: Default Visible */}
+          <div className="font-serif leading-[1.08] tracking-tight text-[6vw] sm:text-4xl lg:text-5xl xl:text-6xl text-[#F3ECDD]/70">
+            Your event is more than a date on a calendar.
+          </div>
 
-        <div ref={ctaRef}>
+          {/* Phase 2: Revealed on 1st scroll */}
           <motion.div
-            initial={{ opacity: 0, y: 32, filter: "blur(4px)" }}
-            animate={ctaInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            style={{ opacity: opacity2, y: y2 }}
+            className="font-serif leading-[1.08] tracking-tight text-[6vw] sm:text-4xl lg:text-5xl xl:text-6xl text-[#F3ECDD]"
           >
+            It's a memory someone will carry for the rest of their life.
+          </motion.div>
+
+          {/* Phase 3: Revealed on 2nd scroll */}
+          <motion.div
+            style={{ opacity: opacity3, y: y3 }}
+            className="flex flex-col items-center gap-8 pt-2"
+          >
+            <div className="font-serif italic leading-[1.08] tracking-tight text-[8vw] sm:text-5xl lg:text-6xl xl:text-7xl text-[#E6C073]">
+              Let's make it worth remembering.
+            </div>
+
             <button
               type="button"
               onClick={() => scrollToId("#contact")}
@@ -108,7 +62,10 @@ export function Closing() {
               className="group inline-flex items-center gap-3 rounded-full bg-[#C9A24D] px-8 py-4 text-[0.68rem] tracking-[0.28em] text-[#0A0806] transition-[background-color,transform] duration-500 hover:bg-[#E6C073] hover:scale-[1.03]"
             >
               START A CONVERSATION
-              <ArrowRight size={15} className="transition-transform duration-500 group-hover:translate-x-1.5" />
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-500 group-hover:translate-x-1.5"
+              />
             </button>
           </motion.div>
         </div>
