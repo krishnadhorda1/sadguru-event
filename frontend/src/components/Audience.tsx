@@ -18,21 +18,24 @@ function FloatingTag({
     <motion.button
       type="button"
       onClick={onClick}
-      className="absolute select-none cursor-pointer"
-      style={{ left: `${event.x}%`, top: `${event.y}%` }}
+      className="relative lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] select-none cursor-pointer flex-shrink-0"
+      style={{
+        "--x": `${event.x}%`,
+        "--y": `${event.y}%`,
+      } as React.CSSProperties}
       animate={
         isSelected
-          ? { scale: 1.18, zIndex: 20, opacity: 1 }
+          ? { scale: 1.15, zIndex: 20, opacity: 1 }
           : anySelected
-          ? { scale: 0.88, opacity: 0.28, zIndex: 1 }
+          ? { scale: 0.88, opacity: 0.25, zIndex: 1 }
           : { scale: 1, opacity: 1, zIndex: 10 }
       }
       transition={{ type: "spring", stiffness: 300, damping: 28 }}
-      whileHover={!anySelected ? { scale: 1.1, zIndex: 15 } : {}}
+      whileHover={!anySelected ? { scale: 1.05, zIndex: 15 } : {}}
     >
       {/* Floating animation wrapper */}
       <motion.div
-        animate={{ y: [0, -10, 0, 6, 0] }}
+        animate={{ y: [0, -8, 0, 4, 0] }}
         transition={{
           duration: event.floatDuration,
           delay: event.floatDelay,
@@ -41,7 +44,7 @@ function FloatingTag({
         }}
       >
         <div
-          className="relative group flex items-center gap-2.5 lg:gap-3 px-5 py-2.5 lg:px-6 lg:py-3 rounded-full border transition-all duration-300"
+          className="relative group flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-6 lg:py-3 rounded-full border transition-all duration-300"
           style={{
             borderColor: isSelected ? event.color : "rgba(230,192,115,0.2)",
             background: isSelected
@@ -53,9 +56,9 @@ function FloatingTag({
               : "0 4px 24px rgba(0,0,0,0.4)",
           }}
         >
-          <span className="text-xl lg:text-2xl leading-none">{event.icon}</span>
+          <span className="text-lg lg:text-2xl leading-none">{event.icon}</span>
           <span
-            className="text-base lg:text-lg font-light tracking-wide whitespace-nowrap"
+            className="text-sm lg:text-lg font-light tracking-wide whitespace-nowrap"
             style={{ color: isSelected ? event.color : "#F3ECDD" }}
           >
             {event.label}
@@ -108,9 +111,9 @@ export function Audience() {
       </AnimatePresence>
 
       {/* Header */}
-      <div className="px-6 lg:px-16 mb-6">
+      <div className="px-6 lg:px-16 mb-8 lg:mb-6 text-center lg:text-left">
         <Reveal>
-          <span className="block text-[0.62rem] tracking-[0.4em] text-[#C9A24D] uppercase mb-6">
+          <span className="block text-[0.62rem] tracking-[0.4em] text-[#C9A24D] uppercase mb-4 lg:mb-6">
             Who we create for
           </span>
         </Reveal>
@@ -128,7 +131,7 @@ export function Audience() {
       </div>
 
       {/* Floating tags stage */}
-      <div className="relative w-full" style={{ height: "700px" }}>
+      <div className="relative w-full max-w-5xl mx-auto flex flex-wrap justify-center gap-3 lg:block lg:h-[500px] px-4 lg:px-0 py-6 lg:py-0">
         {events.map((event) => (
           <FloatingTag
             key={event.id}
@@ -143,7 +146,7 @@ export function Audience() {
         <AnimatePresence>
           {!selected && (
             <motion.div
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
+              className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -151,7 +154,7 @@ export function Audience() {
             >
               <div className="text-center">
                 <motion.div
-                  className="text-5xl mb-3"
+                  className="text-5xl mb-3 text-[#F3ECDD]/30"
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >

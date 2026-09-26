@@ -58,12 +58,8 @@ export const premiumWork: Project[] = [
         link: "https://www.instagram.com/reel/Dc01WNyqIaT/",
       },
       {
-        label: "Marriage mangalam : A culture evening",
-        link: "#",
-      },
-      {
         label: "The Royal Pheras",
-        link: "#",
+        link: "https://www.instagram.com/reels/Ddw3ZLbIYvf/",
       },
     ],
     gallery: [
@@ -215,9 +211,12 @@ export const audienceEvents = [
     icon: "💍",
     tagline: "From the first RSVP to the final farewell.",
     description:
-      "Every ritual, every guest, every detail orchestrated into a seamless memory your family relives for decades.",
+      "A wedding is about creating a seamless celebration around the couple and their families, where guest experience, hospitality, emotions, traditions, and flawless coordination come together.",
     color: "#E6C073",
-    x: 8, y: 12, floatDuration: 6.2, floatDelay: 0,
+    x: 8,
+    y: 12,
+    floatDuration: 6.2,
+    floatDelay: 0,
   },
   {
     id: "destination",
@@ -225,9 +224,12 @@ export const audienceEvents = [
     icon: "✈️",
     tagline: "A celebration, not just a location.",
     description:
-      "Across cities, countries, and time zones — we handle the complexity so your guests only feel the magic.",
+      "Destination weddings require end-to-end guest and logistics management, combining travel, accommodation, hospitality, multiple venues, and wedding celebrations at a location away from home.",
     color: "#D4A853",
-    x: 52, y: 6, floatDuration: 7.1, floatDelay: 0.8,
+    x: 52,
+    y: 6,
+    floatDuration: 7.1,
+    floatDelay: 0.8,
   },
   {
     id: "corporate",
@@ -235,9 +237,12 @@ export const audienceEvents = [
     icon: "🏆",
     tagline: "Precision meets presence.",
     description:
-      "Brand launches, awards nights, product reveals — executed with strategic discipline and premium storytelling.",
+      "Corporate events are designed around business objectives, brand identity, stakeholder engagement, and professional experiences, executed with precision from planning to production.",
     color: "#C9A24D",
-    x: 78, y: 18, floatDuration: 5.8, floatDelay: 1.5,
+    x: 78,
+    y: 18,
+    floatDuration: 5.8,
+    floatDelay: 1.5,
   },
   {
     id: "cultural",
@@ -245,9 +250,12 @@ export const audienceEvents = [
     icon: "🎊",
     tagline: "Heritage, celebrated at scale.",
     description:
-      "Garba nights, Navratri galas, traditional ceremonies — we preserve the soul while elevating every element.",
+      "Cultural events bring heritage, traditions, music, art, and community together, transforming cultural identity into an engaging experience for the audience.",
     color: "#E6C073",
-    x: 22, y: 42, floatDuration: 8.0, floatDelay: 0.3,
+    x: 22,
+    y: 42,
+    floatDuration: 8.0,
+    floatDelay: 0.3,
   },
   {
     id: "community",
@@ -255,9 +263,12 @@ export const audienceEvents = [
     icon: "🌟",
     tagline: "Thousands of people. One shared feeling.",
     description:
-      "When a community gathers, we ensure the energy builds from the entry gate to the final bow.",
+      "Cultural events bring heritage, traditions, music, art, and community together, transforming cultural identity into an engaging experience for the audience.",
     color: "#D4A853",
-    x: 60, y: 38, floatDuration: 6.5, floatDelay: 1.1,
+    x: 60,
+    y: 38,
+    floatDuration: 6.5,
+    floatDelay: 1.1,
   },
   {
     id: "concerts",
@@ -265,9 +276,12 @@ export const audienceEvents = [
     icon: "🎸",
     tagline: "Sound, light, and a crowd that won't forget.",
     description:
-      "Artist management, stage production, sound design — we run the show behind the show.",
+      "Live concerts bring together artists, music, technology, production, and audiences to create high-energy experiences where every element must work together in real time.",
     color: "#C9A24D",
-    x: 85, y: 50, floatDuration: 7.4, floatDelay: 0.6,
+    x: 85,
+    y: 50,
+    floatDuration: 7.4,
+    floatDelay: 0.6,
   },
   {
     id: "concept",
@@ -275,9 +289,12 @@ export const audienceEvents = [
     icon: "🎭",
     tagline: "Events that don't exist — until we build them.",
     description:
-      "Original immersive experiences, themed journeys, and curated performances created from a blank canvas.",
+      "Concept shows transform an idea into a complete visual and experiential narrative, combining creative direction, artists, storytelling, technology, and production into one distinctive show.",
     color: "#E6C073",
-    x: 5, y: 65, floatDuration: 5.5, floatDelay: 2.0,
+    x: 5,
+    y: 65,
+    floatDuration: 5.5,
+    floatDelay: 2.0,
   },
   {
     id: "private",
@@ -285,19 +302,25 @@ export const audienceEvents = [
     icon: "🥂",
     tagline: "Intimate. Exclusive. Unforgettable.",
     description:
-      "Birthdays, anniversaries, milestones — we treat your private moment with the same care as a 5,000-person event.",
+      "Private celebrations are built around personal moments, intimate experiences, and individual preferences, with every detail curated to reflect the host, occasion, and guests.",
     color: "#D4A853",
-    x: 38, y: 70, floatDuration: 6.8, floatDelay: 0.4,
+    x: 38,
+    y: 70,
+    floatDuration: 6.8,
+    floatDelay: 0.4,
   },
   {
     id: "nri",
-    label: "NRI / International",
+    label: "International Events",
     icon: "🌏",
     tagline: "Home, wherever you are.",
     description:
-      "We bring the warmth of Indian celebrations anywhere in the world, coordinating across cultures and continents.",
+      "International events involve cross-border planning, travel, talent, hospitality, and local execution, requiring strong coordination between teams, vendors, artists, and guests across locations.",
     color: "#C9A24D",
-    x: 68, y: 72, floatDuration: 7.6, floatDelay: 1.7,
+    x: 68,
+    y: 72,
+    floatDuration: 7.6,
+    floatDelay: 1.7,
   },
   {
     id: "luxury",
@@ -305,9 +328,12 @@ export const audienceEvents = [
     icon: "👑",
     tagline: "When nothing less than perfect is acceptable.",
     description:
-      "Curated vendors, bespoke decor, white-glove service — every element elevated beyond expectation.",
+      "Luxury events are defined by exclusivity, personalization, attention to detail, and elevated guest experiences, where every element is carefully curated rather than simply arranged.",
     color: "#E6C073",
-    x: 15, y: 85, floatDuration: 6.0, floatDelay: 0.9,
+    x: 15,
+    y: 85,
+    floatDuration: 6.0,
+    floatDelay: 0.9,
   },
   {
     id: "social",
@@ -315,9 +341,12 @@ export const audienceEvents = [
     icon: "🎈",
     tagline: "Every reason to celebrate deserves to be remembered.",
     description:
-      "Engagements, baby showers, farewell parties — life's quieter milestones, made extraordinary.",
+      "Social celebrations bring families, friends, communities, and entertainment together, creating memorable experiences through thoughtful planning, hospitality, and engaging programming",
     color: "#D4A853",
-    x: 58, y: 88, floatDuration: 7.2, floatDelay: 1.3,
+    x: 58,
+    y: 88,
+    floatDuration: 7.2,
+    floatDelay: 1.3,
   },
 ];
 
